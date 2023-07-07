@@ -1,1 +1,1 @@
-# nextjs-whatsapp-clone-starter
+# nextjs-sendio messenger social platform.
