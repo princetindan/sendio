@@ -1,19 +1,42 @@
 import Image from "next/image";
 import React from "react";
+import { useStateProvider } from "@/context/StateContext";
+import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { firebaseAuth } from "@/utils/FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 
 function login() {
+  const router = useRouter();
+
+  const [{}, dispatch] = useStateProvider();
+
   const handleLogin = async () => {
-    // alert("login");
     const provider = new GoogleAuthProvider();
     const { user: { displayName: name, email, photoUrl: profileImage },
-    } = await signInWithPopup (firebaseAuth, provider);
+    } = await signInWithPopup(firebaseAuth, provider);
+    console.log({user})
     try {
       if (email) {
         const { data } = await axios.post(CHECK_USER_ROUTE, { email });
-        console.log(data)}
+      
+      if (!data.status) {
+          dispatch({
+            type: reducerCases.SET_NEW_USER, newUser: true
+          });
+          dispatch({
+            type: reducerCases.SET_USER_INFO,
+            userInfo: {
+              name,
+              email,
+              profileImage,
+              status: "",
+            },
+          });
+          router.push("/onboarding");
+        }
+      }
+      
     }
     catch (err) {
     console.log(err);}
@@ -23,7 +46,7 @@ function login() {
     <div className="flex items-center justify-center gap-2 text-white">
     <Image
        src="/whatsapp.gif" alt="Whatapp" height="300" width="300" />
-      <span className="text-7xl">Whatsapp</span>
+      <span className="text-7xl">Sendio</span>
       </div>
         <button className="flex items-center justify-center gab-7 bg-search-input-container-background p-5 round-lg"
           onClick={handleLogin}>
