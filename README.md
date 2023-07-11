@@ -1,6 +1,6 @@
 # sendio
 This is a messenging Application built with NodeJs (backend)
-VueJs (frontend).
+Nextjs and React (frontend).
 This is my schema URL: https://dbdiagram.io/d/647af2e7722eb7749451fd10
-I am using Object-Relational Mapping (ORM).
+I am using Postgres  (Prisma).
 Contact me on https://t.me/princetindan
