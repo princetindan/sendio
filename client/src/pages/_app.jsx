@@ -8,8 +8,8 @@ export default function App({ Component, pageProps }) {
   return (
     <StateProvider initialState={initialState} reducer={reducer}>
       <Head>
-        <ttitle>Sendio</ttitle>
-        <link rel="shortcut icon" href="/favicon.png"></link>
+        <title>Sendio</title>
+        <link rel="shortcut icon" href="/favicon.png" />
       </Head>
       <Component {...pageProps} />
     </StateProvider>

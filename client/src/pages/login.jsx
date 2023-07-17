@@ -15,11 +15,17 @@ function login() {
 
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
-    const { user: { displayName: name, Email, photoUrl: profileImage }
+    provider.setCustomParameter({
+      prompt: "select_account"
+    })
+      // using the object we will authenticate the user.
+    // firebase.auth().signInWithPopup(googleAuth);
+    const { user: { displayName: name, email, photoUrl: profileImage }
     } = await signInWithPopup(firebaseAuth, provider);
+    
     try {
-      if (Email) {
-        const { data } = await axios.post(CHECK_USER_ROUTE, { Email });
+      if (email) {
+        const { data } = await axios.post(CHECK_USER_ROUTE, { email });
       
       if (!data.status) {
           dispatch({
@@ -29,7 +35,7 @@ function login() {
             type: reducerCases.SET_USER_INFO,
             userInfo: {
               name,
-              Email,
+              email,
               profileImage,
               status: "",
             },
@@ -50,7 +56,7 @@ function login() {
       <span className="text-7xl">Sendio</span>
       </div>
         <button className="flex items-center justify-center gab-7 bg-search-input-container-background p-5 round-lg"
-          onClick={handleLogin}>
+          onClick={handleLogin} >
           <FcGoogle className="text-4x1" />
           <span className="text-white text 2xl">Login with Google</span>
         </button>
