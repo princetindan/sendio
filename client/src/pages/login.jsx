@@ -15,7 +15,7 @@ function login() {
 
   const handleLogin = async () => {
     const provider = new GoogleAuthProvider();
-    provider.setCustomParameter({
+    provider.setCustomParameters({
       prompt: "select_account"
     })
       // using the object we will authenticate the user.

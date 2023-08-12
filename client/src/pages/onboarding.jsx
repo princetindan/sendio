@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Image from "next/image";
-//import { useStateProvider } from "@/context/onboarding";
+import { useStateProvider } from "@/context/onboarding";
 import { useStateProvider } from "@/context/StateContext";
 import Input from "@/components/common/Input";
 
