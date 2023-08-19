@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import Image from "next/image";
-import { useStateProvider } from "@/context/onboarding";
+//import Avatar from "@/components/common/Avatar"; 
+//import { useStateProvider } from "@/context/onboarding";
 import { useStateProvider } from "@/context/StateContext";
 import Input from "@/components/common/Input";
 
@@ -12,7 +13,7 @@ function onboarding() {
   const [image, setImage] = useState("/default_avatar.png");
   return (<div className="  bg-panel-header-background h-screen w-screen text-white flex fle-col items-center justify">
     <div className="flex items-center justify-center gap-2">
-      <Image src="/whatsapp.gif" alt="whatsapp" height="300" width="300" /> 
+      <Image src="/whatsapp.gif" alt="whatsapp" height={300} width={300}/> 
       <span className= "text-7xl">Whatsapp</span>
     </div> 
     <h2 className="text-2xl">Create your Profile</h2>
@@ -22,7 +23,7 @@ function onboarding() {
         <Input name="About" state={about} setState={setAbout} label />
       </div>
       <div>
-        <Avatar type="lg" image={image} setImage={setImage} />
+        <Avatar type="xl" image={image} setImage={setImage} />
       </div>
     </div>
   </div>)

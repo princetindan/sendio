@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import { FcGoogle } from "react-icons/fc";
 import { firebaseAuth } from "@/utils/FirebaseConfig";
 import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { reducerCases } from "@/context/constants";
 import axios from "axios";
 import { CHECK_USER_ROUTE } from "@/utils/ApiRoutes";
 
