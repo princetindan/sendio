@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import Image from "next/image";
-//import Avatar from "@/components/common/Avatar"; 
+import Avatar from "@/components/common/Avatar"; 
 //import { useStateProvider } from "@/context/onboarding";
 import { useStateProvider } from "@/context/StateContext";
 import Input from "@/components/common/Input";
@@ -22,7 +22,7 @@ function onboarding() {
         <Input name="Display Name" state={name} setState={setName} label />
         <Input name="About" state={about} setState={setAbout} label />
       </div>
-      <div>
+      <div>   
         <Avatar type="xl" image={image} setImage={setImage} />
       </div>
     </div>

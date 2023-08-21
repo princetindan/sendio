@@ -48,14 +48,14 @@ function Avatar({ type, image, setImage }) {
            onMouseLeave={() => setHover(false)}
         >
           <div className={`z-10 bg-photopicker-overlay-background h-60 w-60 absolute top-0 left-0 flex items-center rounded-full justify-center flex-col gap-2 ${hover ? "visible" : "hidden"}`}
-          onclick={(e) =>showContextMenu(e)}  id="context-opener"
+          onClick={(e) =>showContextMenu(e)}  id="context-opener"
           >
             <FaCamera className="text-2xl"
               id="context-opener"
-              onclick={(e) => showContextMenu(e)}
+              onClick={(e) => showContextMenu(e)}
              
             />
-            <span onclick={(e) => showContextMenu(e)} id="context-opener">
+            <span onClick={(e) => showContextMenu(e)} id="context-opener">
               Change <br />Profile<br /> Photo
             </span>
          </div>
